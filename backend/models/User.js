@@ -1,6 +1,7 @@
 // https://mongoosejs.com/docs/guide.html
 
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 const UserSchema = new Schema({
     name:{
