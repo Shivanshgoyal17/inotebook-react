@@ -1,0 +1,245 @@
+{
+    "info": {
+        "_postman_id": "4cc6a958-dc9a-4ce0-91b6-860afa74d8b7",
+        "name": "iNotebook",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Authentication",
+            "item": [
+                {
+                    "name": "Create a new user",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:5000/api/auth/createuser",
+                            "path": [
+                                "api",
+                                "auth",
+                                "createuser"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"Shivansh goyal\",\n  \"email\": \"shivansh@gmail.com\",\n  \"password\": \"stark\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "User login using creds",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:5000/api/auth/login",
+                            "path": [
+                                "api",
+                                "auth",
+                                "login"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"shivansh@gmail.com\",\n  \"password\": \"stark\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get User Data",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:5000/api/auth/getuser",
+                            "path": [
+                                "api",
+                                "auth",
+                                "getuser"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "header": [
+                            {
+                                "key": "auth-token",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdjZTBmZjQzYWYyNjdiMTQ3ZDI2MjAwIn0sImlhdCI6MTc0MTU1Nzc5M30.NN-ngnY5AUy4QRBnYOaQKb69JHQfGRLnttL-UEAHPvg"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Notes",
+            "item": [
+                {
+                    "name": "Fetch All Notes",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:5000/api/notes/fetchallnotes",
+                            "path": [
+                                "api",
+                                "notes",
+                                "fetchallnotes"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "header": [
+                            {
+                                "key": "auth-token",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdjZTBmZjQzYWYyNjdiMTQ3ZDI2MjAwIn0sImlhdCI6MTc0MTU1Nzc5M30.NN-ngnY5AUy4QRBnYOaQKb69JHQfGRLnttL-UEAHPvg"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Add Note",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:5000/api/notes/addnote",
+                            "path": [
+                                "api",
+                                "notes",
+                                "addnote"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "auth-token",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdjZTBmZjQzYWYyNjdiMTQ3ZDI2MjAwIn0sImlhdCI6MTc0MTU1Nzc5M30.NN-ngnY5AUy4QRBnYOaQKb69JHQfGRLnttL-UEAHPvg"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"title\": \"My Title\",\n  \"description\": \"My description\",\n  \"tag\": \"personal\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Update Note",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://localhost:5000/api/notes/updatenote/67d1519e4ea0fd2dfcbb9bf1",
+                            "path": [
+                                "api",
+                                "notes",
+                                "updatenote",
+                                "67d1519e4ea0fd2dfcbb9bf1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "auth-token",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdjZTBmZjQzYWYyNjdiMTQ3ZDI2MjAwIn0sImlhdCI6MTc0MTU1Nzc5M30.NN-ngnY5AUy4QRBnYOaQKb69JHQfGRLnttL-UEAHPvg"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"title\": \"My Title updated\",\n  \"description\": \"My description updated\",\n  \"tag\": \"personal\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Note",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:5000/api/notes/deletenote/67d1519e4ea0fd2dfcbb9bf1",
+                            "path": [
+                                "api",
+                                "notes",
+                                "deletenote",
+                                "67d1519e4ea0fd2dfcbb9bf1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "auth-token",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdjZTBmZjQzYWYyNjdiMTQ3ZDI2MjAwIn0sImlhdCI6MTc0MTU1Nzc5M30.NN-ngnY5AUy4QRBnYOaQKb69JHQfGRLnttL-UEAHPvg"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
